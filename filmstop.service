@@ -1,0 +1,15 @@
+[Unit]
+Description=Filmstop
+After=multi-user.target dbus.service
+
+ 
+[Service]
+Type=simple
+User=pi
+#ExecStartPre=/home/pi/stopomx.sh
+ExecStart=/usr/bin/python3 /home/pi/filmstop.py
+ExecStop=/home/pi/stopomx.sh
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
